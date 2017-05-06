@@ -1,13 +1,11 @@
+using Zenject;
+
 public class Calculator
 {
+    [Inject]
     private NumberParser parser;
 
     #region Class functions
-
-    public Calculator(NumberParser parser)
-    {
-        this.parser = parser;
-    }
 
     public string Sum(string a, string b, bool romanOutpout)
     {

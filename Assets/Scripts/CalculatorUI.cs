@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class CalculatorUI: MonoBehaviour
 {
@@ -11,19 +12,11 @@ public class CalculatorUI: MonoBehaviour
     [SerializeField]
     private Text result;
 
-    //Hidden
-    private bool romanOutpout;
-
-    #endregion
-
+    [Inject]
     private Calculator calculator;
 
-    #region Unity functions
-
-    private void Awake()
-    {
-        calculator = new Calculator(new NumberParser());
-    }
+    //Hidden
+    private bool romanOutpout;
 
     #endregion
 
@@ -39,11 +32,6 @@ public class CalculatorUI: MonoBehaviour
         UpdateResultField(calculator.Substract(aNumber, bNumber, romanOutpout));
     }
 
-    public void RomanOutpout(bool romanOutpout)
-    {
-        this.romanOutpout = romanOutpout;
-    }
-
     public void ANumber(string aNumber)
     {
         this.aNumber = aNumber;
@@ -52,6 +40,11 @@ public class CalculatorUI: MonoBehaviour
     public void BNumber(string bNumber)
     {
         this.bNumber = bNumber;
+    }
+
+    public void RomanOutpout(bool romanOutpout)
+    {
+        this.romanOutpout = romanOutpout;
     }
 
     private void UpdateResultField(string resultValue)

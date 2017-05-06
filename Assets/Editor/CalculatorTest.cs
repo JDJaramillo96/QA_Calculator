@@ -1,8 +1,10 @@
 ﻿using NUnit.Framework;
+using Zenject;
 
 public class CalculatorTest
 {
-    private Calculator calculator = new Calculator(new NumberParser());
+    [Inject]
+    private Calculator calculator;
 
     #region Test functions
 
