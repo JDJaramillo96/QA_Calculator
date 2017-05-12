@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 public class CalculatorUI: MonoBehaviour
 {
@@ -12,8 +11,7 @@ public class CalculatorUI: MonoBehaviour
     [SerializeField]
     private Text result;
 
-    [Inject]
-    private Calculator calculator;
+    private Calculator calculator = new Calculator(new NumberParser());
 
     //Hidden
     private bool romanOutpout;

@@ -1,10 +1,8 @@
 ﻿using NUnit.Framework;
-using Zenject;
 
 public class NumberParserTest 
 {
-    [Inject]
-    private NumberParser parser;
+    private NumberParser parser = new NumberParser();
 
     #region Test functions
 
